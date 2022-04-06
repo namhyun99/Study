@@ -1,2 +1,3 @@
-# Study
-take notes of one's studies
+# 프로그래밍 공부학습 필기
+
+언어별 프로그래밍 공부내용을 필기한 레포지토리  :clipboard:
