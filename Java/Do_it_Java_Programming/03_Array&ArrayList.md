@@ -1,4 +1,6 @@
-# 배열과 ArrayList
+# Array 와 ArrayList
+
+<br>
 
 
 ## 배열은 왜 써야 할까?
