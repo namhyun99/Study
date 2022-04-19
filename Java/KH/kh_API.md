@@ -166,9 +166,115 @@ public class Phone implements Cloneable {
 ```
 
 
+### 숫자관련 클래스 - 싱글톤
+> 단 하나의 인스턴스를 사용하는 디자인 패턴   
+> (인스턴스가 필요한 때 똑같은 인스턴스를 만들어 내는 것이 아니라, 동일(기존) 인스턴스를 사용하게 함)
+
+- Math 클래스가 대표적, `static` 영역
+
+```java
+public class MathDateController {
+
+	public void mathMethod() {
+		
+		double num = -4.949;
+		// abs 절대값
+		System.out.println(Math.abs(num));  // 4.949
+		
+		// ceil 올림
+		System.out.println(Math.ceil(num)); // -4.0
+		
+		// floor 버림
+		System.out.println(Math.floor(num));  // -5.0
+		
+		//random 0~0.9999
+		int ranNum = (int) (Math.random()) * 10 + 1;  // 1~10
+		System.out.println(ranNum);
+		
+		// util의 Random 클래스 사용
+		Random rn = new Random();
+		int ranNum1 = rn.nextInt(4) + 1;
+		System.out.println(ranNum1);
+		
+		// rint 가장 가까운 정수값
+		System.out.println(Math.rint(num)); // -5.0
+		
+		// round 반올림한 정수
+		System.out.println(Math.round(num)); // -5
+		
+		// sqrt 제곱근(루트) 계산
+		System.out.println(Math.sqrt(121)); // 11.0
+		
+		// pow 제곱
+		System.out.println(Math.pow(2, 3)); // 8.0
+
+	}
+}
 
 
+```
 
+<br>
 ## Chap04. 날짜 관련 클래스
 
+### DATE
+- 앞으로 없어질 메소드들, 하지만 알아두어야 한다.
+```java
+		Date today = new Date();
+		System.out.println(today);
+		
+
+		// 원하는 시간을 뽑아보자
+		System.out.println("getTime() : " + today.getTime());
+		System.out.println("getDate() : " + today.getDate());
+		System.out.println("getDay() : " + today.getDay());
+		System.out.println("getHours() : " + today.getHours());
+		System.out.println("getMinutes() : " + today.getMinutes());
+		System.out.println("getMonth() : " + (today.getMonth()+1));
+		System.out.println("getSeconds() : " + today.getSeconds());
+		System.out.println("getYear() : " + (today.getYear() + 1900));
+```
+
+#### SimpleDateFormat
+- DATE형식을 원하는 포맷으로 변환하여 출력
+
+```java
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd E hh:mm:ss");
+		System.out.println(sdf1.format(calendar.getTime()));
+```
+
+### Calendar
+1. Calendar 는 월만 -1
+2. TimeZone 기능 제공
+3. field number 개념 도입
+
+```java
+//.. 생략
+System.out.println("-----calendar -----");
+		// 1.  Calendar 는 월만 -1
+		// 2. TimeZone 기능 제공
+		// 3. field number 개념 도입
+		
+		Calendar calendar = Calendar.getInstance();
+		
+		calendar.set(2022, 4-1, 19);
+		
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH)+1;
+		int date = calendar.get(Calendar.DATE);
+		int hour = calendar.get(Calendar.HOUR);
+		int minute = calendar.get(Calendar.MINUTE);
+		int sec = calendar.get(Calendar.SECOND);
+		
+		System.out.println(year + "년 " 
+							+ month + "월 " 
+							+ date + "일 " 
+							+ hour + ":" 
+							+ minute + ":" 
+							+ sec);
+//.. 생략
+```
+
+
+<br>
 ## Chap05. 포맷 관련 클래스
